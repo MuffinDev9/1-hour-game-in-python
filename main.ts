@@ -40,8 +40,12 @@ game.onUpdate(function controller_update() {
 //  End
 //  Jump
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
-    if (character.vy == 0) {
+    if (controller.left.isPressed()) {
+        character.setVelocity(-10, -250)
+    } else if (controller.right.isPressed()) {
         character.setVelocity(10, -250)
+    } else {
+        character.setVelocity(0, -250)
     }
     
     

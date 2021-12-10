@@ -53,8 +53,12 @@ game.on_update(controller_update)
 # Jump
 
 def on_a_pressed():
-    if character.vy == 0:
+    if controller.left.is_pressed():
+        character.set_velocity(-10, -250)
+    elif controller.right.is_pressed():
         character.set_velocity(10, -250)
+    else:
+        character.set_velocity(0, -250)
     pass
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 
